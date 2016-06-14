@@ -75,4 +75,4 @@ export function connectComponent(propsFromState, actionsFromEvents){
     };
 }
 
-export { rootComponent } from './components/Root.jsx';
+export { rootComponent } from './components/Root.js';

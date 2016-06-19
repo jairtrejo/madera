@@ -7,7 +7,7 @@ function _snakeToCamel(s){
 }
 
 
-export function explode(actions$){
+export function explode(action$){
     let exploded = {};
 
     // Values in action$ look like { type: TOGGLE_ACTION, payload: {} }
@@ -15,8 +15,8 @@ export function explode(actions$){
     for (let actionType of action$.actionTypes) {
         let streamName = _snakeToCamel(actionType.toLowerCase()) + '$';
         exploded[streamName] =
-            actions$.filter(({ type }) => type === actionType)
-                    .map(({ payload }) => payload);
+            action$.filter(({ type }) => type === actionType)
+                   .map(({ payload }) => payload);
     }
 
     return exploded;

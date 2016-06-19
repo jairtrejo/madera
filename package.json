@@ -1,7 +1,7 @@
 {
   "name": "madera",
   "version": "0.0.1",
-  "description": "A React + Bacon + ImmutableJS micro framework",
+  "description": "A functional reactive micro framework",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,7 +16,10 @@
     "madera",
     "react",
     "bacon",
-    "immutable"
+    "immutable",
+    "functional",
+    "reactive",
+    "frp"
   ],
   "author": "Jair Trejo <jair@jairtrejo.mx> (http://jairtrejo.mx)",
   "license": "MIT",

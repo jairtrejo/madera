@@ -6,6 +6,9 @@ export function rootComponent(action$, state$, init){
         class Root extends React.Component {
             componentWillMount(){
                 this.state = { action$, state$ };
+            }
+
+            componentDidMount(){
                 init();
             }
 

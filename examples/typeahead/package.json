@@ -1,0 +1,66 @@
+{
+  "name": "madera-typeahead-example",
+  "version": "0.0.0",
+  "description": "A typeahead built with Madera",
+  "main": "dist/bundle.min.js",
+  "scripts": {
+    "test": "ava --source src",
+    "test:watch": "npm run test -- --watch",
+    "build": "NODE_ENV=production browserify src/app.js | uglifyjs -cm > dist/bundle.min.js",
+    "start": "NODE_ENV=development budo src/app.js:bundle.js --live -- --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jairtrejo/madera.git"
+  },
+  "author": "Jair Trejo <jair@jairtrejo.mx> (http://jairtrejo.mx)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jairtrejo/madera/issues"
+  },
+  "homepage": "https://github.com/jairtrejo/madera#readme",
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "cssify",
+      "envify"
+    ]
+  },
+  "dependencies": {
+    "baconjs": "^0.7.84",
+    "immutable": "^3.8.1",
+    "madera": "0.0.2",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-spinkit": "^1.1.7"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "budo": "^8.3.0",
+    "cssify": "^1.0.2",
+    "envify": "^3.4.1",
+    "enzyme": "^2.3.0",
+    "fetch-mock": "^4.6.0",
+    "react-addons-test-utils": "^15.1.0",
+    "sinon": "^1.17.4",
+    "uglify-js": "^2.6.4",
+    "watchify": "^3.7.0"
+  }
+}

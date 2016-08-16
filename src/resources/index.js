@@ -8,7 +8,11 @@ export class Resource {
 }
 
 
-export function connectResource(operationsFromState, actionsFromResults){
+export function connectResource(operationsFromState, actionsFromResults, userOptions){
+    const options = Object.assign(
+        {}, { flatMapLatest: true }, userOptions
+    );
+
     return (ComposedResource) => {
         class ConnectedResource extends Resource {
             constructor(...args) {
@@ -22,7 +26,7 @@ export function connectResource(operationsFromState, actionsFromResults){
                     let state$ToOperation$ = operations[operation_name];
                     let result$toAction$ = actionMappings[operation_name];
 
-                    let result$ = state$ToOperation$.flatMapLatest(
+                    let result$ = state$ToOperation$[options.flatMapLatest ? 'flatMapLatest' : 'flatMap'](
                         state => Bacon.fromPromise(resource[operation_name](state))
                     );
 
